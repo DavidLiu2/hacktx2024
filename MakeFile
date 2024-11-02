@@ -1,0 +1,2 @@
+fetch:
+	kaggle competitions download -c commonlitreadabilityprize
