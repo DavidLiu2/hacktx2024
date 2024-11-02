@@ -7,3 +7,4 @@ install:
 	pip install numpy
 	pip install sklearn
 	pip install tensorflow
+	pip install matplotlib
