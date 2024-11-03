@@ -45,10 +45,10 @@ def predict():
     # Make prediction
     prediction = model.predict(text_input)
 
-    pd.cut(prediction, bins=[-2.35, -1.875, -1.53, -1.199, -1.192, -0.643, -0.466, -.136, .47 , .81, 1.71], labels=range(12, 2, -1))
+    result = pd.cut([prediction[0][0]], bins=[-2.35, -1.875, -1.53, -1.199, -1.192, -0.643, -0.466, -.136, .47 , .81, 1.71], labels=range(12, 2, -1))[0]
 
     # Return the prediction as JSON
-    return jsonify({'prediction': prediction[0][0]})
+    return jsonify({'prediction': result})
 
 # Run the Flask app
 if __name__ == '__main__':

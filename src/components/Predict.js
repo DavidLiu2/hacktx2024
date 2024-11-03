@@ -37,7 +37,7 @@ function Predict() {
             />
             <button onClick={handlePredict}>Predict</button>
             {prediction !== null && (
-                <p>Predicted Value: {prediction.toFixed(2)}</p>
+                <p>Predicted Value: Grade {prediction.toFixed(0)}</p>
             )}
         </div>
     );
