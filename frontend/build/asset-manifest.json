@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/hacktx2024/static/css/main.bebf9ba3.css",
-    "main.js": "/hacktx2024/static/js/main.1e6840db.js",
-    "static/js/453.c55dc990.chunk.js": "/hacktx2024/static/js/453.c55dc990.chunk.js",
-    "static/media/arcade_background.png": "/hacktx2024/static/media/arcade_background.ddb6af95a4cebaa3a697.png",
-    "index.html": "/hacktx2024/index.html",
-    "main.bebf9ba3.css.map": "/hacktx2024/static/css/main.bebf9ba3.css.map",
-    "main.1e6840db.js.map": "/hacktx2024/static/js/main.1e6840db.js.map",
-    "453.c55dc990.chunk.js.map": "/hacktx2024/static/js/453.c55dc990.chunk.js.map"
+    "main.css": "./hacktx2024/static/css/main.bebf9ba3.css",
+    "main.js": "./hacktx2024/static/js/main.1e6840db.js",
+    "static/js/453.c55dc990.chunk.js": "./hacktx2024/static/js/453.c55dc990.chunk.js",
+    "static/media/arcade_background.png": "./hacktx2024/static/media/arcade_background.ddb6af95a4cebaa3a697.png",
+    "index.html": "./hacktx2024/index.html",
+    "main.bebf9ba3.css.map": "./hacktx2024/static/css/main.bebf9ba3.css.map",
+    "main.1e6840db.js.map": "./hacktx2024/static/js/main.1e6840db.js.map",
+    "453.c55dc990.chunk.js.map": "./hacktx2024/static/js/453.c55dc990.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bebf9ba3.css",
