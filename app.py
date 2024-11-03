@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from tensorflow.keras.models import load_model
 import tensorflow as tf
-from tensorflow import tensorflowlite
 import pandas as pd
 
 # Import or define the custom layer class
