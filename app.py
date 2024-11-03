@@ -33,6 +33,8 @@ CORS(app)  # Enable CORS for all routes
 # Load the saved model
 model = load_model("model.keras", custom_objects={'ReadabilityScoreLayer': ReadabilityScoreLayer})
 
+
+
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get JSON data from the request
