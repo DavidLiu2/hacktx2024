@@ -38,6 +38,7 @@ model = load_model("model.h5", custom_objects={'ReadabilityScoreLayer': Readabil
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get JSON data from the request
+    return jsonify({'message': 'Prediction endpoint is working'})
     data = request.json
     text = data['excerpt']  # Assume input is in a key called 'excerpt'
 
