@@ -8,3 +8,4 @@ install:
 	pip install sklearn
 	pip install tensorflow
 	pip install matplotlib
+	pip install flask-cors
