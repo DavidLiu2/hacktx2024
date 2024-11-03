@@ -1,17 +1,30 @@
 /* src/App.css */
 
+/* Existing styles for .app-container */
 .app-container {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;      
-  height: 100vh;              
-  overflow-x: auto;           /* Enable horizontal scrolling */
-  padding: 0 20px;            /* Horizontal padding only */
+  align-items: flex-end;
+  height: 100vh;
+  overflow-x: auto;
+  padding: 0 20px;
   scroll-behavior: smooth;
-
   background-image: url('/public/images/arcade_background.png');
   background-size: auto 101vh;
   background-repeat: no-repeat;
   background-position: 0 0;
   scrollbar-width: none;
+}
+
+/* Styles for the fixed header image */
+.fixed-header-image {
+  position: fixed;
+  top: 40px;                         /* Adjusted position */
+  left: 50%;                         
+  transform: translateX(-50%);       
+  width: 100%;                      
+  max-width: 900px;                 
+  height: auto;                     
+  z-index: 1000;                    
+  pointer-events: none;
 }

@@ -1,8 +1,8 @@
 // src/App.js
 import React, { useRef, useEffect } from 'react';
-import MinorMachine from './components/MinorMachine';
 import MainMachine from './components/MainMachine';
 import './App.css';
+import Tutorial from './components/Tutorial';
 
 function App() {
   const minor_images1 = [
@@ -18,13 +18,9 @@ function App() {
     '/images/Asset 10 Main.png',
   ];
 
-  const minor_images2 = [
-    
-  ];
-
   const containerRef = useRef(null);
-  const scrollAmount = 500; // Adjust scroll increment as needed
-  const parallaxSpeed = 0.4; // Adjust this value for faster or slower background speed
+  const scrollAmount = 500;
+  const parallaxSpeed = 0.4;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -34,25 +30,23 @@ function App() {
     container.scrollLeft = initialScrollPosition;
 
     const handleScroll = () => {
-      // Apply a multiplier to scrollLeft for the background's parallax speed
       container.style.backgroundPosition = `-${container.scrollLeft * parallaxSpeed}px 0`;
     };
 
     const handleKeyDown = (event) => {
       if (event.repeat) return;
 
+      // Adjust scrollLeft explicitly based on scrollAmount
       if (event.key === 'ArrowRight') {
-        container.scrollLeft += scrollAmount;
+        container.scrollLeft = Math.min(container.scrollLeft + scrollAmount, container.scrollWidth - container.clientWidth);
       } else if (event.key === 'ArrowLeft') {
-        container.scrollLeft -= scrollAmount;
+        container.scrollLeft = Math.max(container.scrollLeft - scrollAmount, 0);
       }
     };
 
-    // Attach event listeners
     container.addEventListener('scroll', handleScroll);
     window.addEventListener('keydown', handleKeyDown);
 
-    // Cleanup listeners on unmount
     return () => {
       container.removeEventListener('scroll', handleScroll);
       window.removeEventListener('keydown', handleKeyDown);
@@ -60,11 +54,15 @@ function App() {
   }, [scrollAmount, parallaxSpeed]);
 
   return (
-    <div className="app-container" ref={containerRef}>
-      {minor_images1.map((src, index) => (
-        <MainMachine key={`${src}-${index}`} imageSrc={src} />
-      ))}
-    </div>
+    <>
+      <Tutorial />
+      <img src="/images/title.png" alt="Title" className="fixed-header-image" />
+      <div className="app-container" ref={containerRef}>
+        {minor_images1.map((src, index) => (
+          <MainMachine key={`${src}-${index}`} imageSrc={src} />
+        ))}
+      </div>
+    </>
   );
 }
 
