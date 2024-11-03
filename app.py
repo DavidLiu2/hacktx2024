@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from tensorflow.keras.models import load_model
 import tensorflow as tf
+import pandas as pd
 
 # Import or define the custom layer class
 @tf.keras.utils.register_keras_serializable()
@@ -43,6 +44,8 @@ def predict():
     
     # Make prediction
     prediction = model.predict(text_input)
+
+    pd.cut(prediction, bins=[-2.35, -1.875, -1.53, -1.199, -1.192, -0.643, -0.466, -.136, .47 , .81, 1.71], labels=range(12, 2, -1))
 
     # Return the prediction as JSON
     return jsonify({'prediction': prediction[0][0]})
