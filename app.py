@@ -54,4 +54,6 @@ def predict():
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Avoid setting a specific host and port in app.py
+    app.run(host="127.0.0.1", port=5000)
+
