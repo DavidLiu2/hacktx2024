@@ -1,0 +1,45 @@
+name: reading-level
+region: nyc
+
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+
+ingress:
+  rules:
+    - component: hacktx2024-backend  # Redirect API traffic to backend
+      match:
+        path:
+          prefix: /api  # All requests starting with /api go to backend
+    - component: hacktx2024-frontend  # Redirect everything else to front end
+      match:
+        path:
+          prefix: /
+
+services:
+  # Back-End Service (Python/Flask)
+  - environment_slug: python
+    name: hacktx2024-backend
+    github:
+      repo: DavidLiu2/hacktx2024
+      branch: main
+      deploy_on_push: true
+    source_dir: backend  # Directory where your Python app is located (e.g., `backend`)
+    run_command: python app.py
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: apps-s-1vcpu-0.5gb
+
+  # Front-End Service (React)
+  - environment_slug: node-js
+    name: hacktx2024-frontend
+    github:
+      repo: DavidLiu2/hacktx2024
+      branch: main
+      deploy_on_push: true
+    source_dir: frontend  # Directory where your React app is located (e.g., `frontend`)
+    build_command: npm run build
+    run_command: npm install -g serve && serve -s build  # Serves the static build
+    http_port: 3000
+    instance_count: 1
+    instance_size_slug: apps-s-1vcpu-0.5gb
