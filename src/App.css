@@ -1,0 +1,18 @@
+/* src/App.css */
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;      /* Align items to the bottom of the container */
+  height: 100vh;              /* Full viewport height */
+  overflow-x: auto;           /* Enable horizontal scrolling */
+  overflow-y: hidden;         /* Hide vertical scrollbar */
+  padding: 0 20px;            /* Horizontal padding only */
+  scroll-behavior: smooth;
+
+  background-image: url('/public/images/arcade_background.png');
+  background-size: auto 101vh;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  scrollbar-width: none;
+}
