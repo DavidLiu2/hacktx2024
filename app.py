@@ -37,8 +37,8 @@ model = load_model("model.h5", custom_objects={'ReadabilityScoreLayer': Readabil
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    app.logger.info('Received request at /predict')
     # Get JSON data from the request
-    return jsonify({'message': 'Prediction endpoint is working'})
     data = request.json
     text = data['excerpt']  # Assume input is in a key called 'excerpt'
 
@@ -52,6 +52,11 @@ def predict():
 
     # Return the prediction as JSON
     return jsonify({'prediction': result})
+
+@app.route('/health', methods=['GET'])
+def health():
+    app.logger.info("Health check endpoint reached")
+    return jsonify({'status': 'healthy'})
 
 # Run the Flask app
 if __name__ == '__main__':
