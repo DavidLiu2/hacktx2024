@@ -31,7 +31,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Load the saved model
-model = load_model("backend/model.keras", custom_objects={'ReadabilityScoreLayer': ReadabilityScoreLayer})
+model = load_model("model.keras", custom_objects={'ReadabilityScoreLayer': ReadabilityScoreLayer})
 
 
 
