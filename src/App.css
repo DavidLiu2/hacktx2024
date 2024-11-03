@@ -3,10 +3,9 @@
 .app-container {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;      /* Align items to the bottom of the container */
-  height: 100vh;              /* Full viewport height */
+  align-items: flex-end;      
+  height: 100vh;              
   overflow-x: auto;           /* Enable horizontal scrolling */
-  overflow-y: hidden;         /* Hide vertical scrollbar */
   padding: 0 20px;            /* Horizontal padding only */
   scroll-behavior: smooth;
 

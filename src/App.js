@@ -1,10 +1,11 @@
 // src/App.js
 import React, { useRef, useEffect } from 'react';
 import MinorMachine from './components/MinorMachine';
+import MainMachine from './components/MainMachine';
 import './App.css';
 
 function App() {
-  const images = [
+  const minor_images1 = [
     '/images/Asset 1.png',
     '/images/Asset 2.png',
     '/images/Asset 3.png',
@@ -14,6 +15,11 @@ function App() {
     '/images/Asset 7.png',
     '/images/Asset 8.png',
     '/images/Asset 9.png',
+    '/images/Asset 10 Main.png',
+  ];
+
+  const minor_images2 = [
+    
   ];
 
   const containerRef = useRef(null);
@@ -55,8 +61,8 @@ function App() {
 
   return (
     <div className="app-container" ref={containerRef}>
-      {images.map((src, index) => (
-        <MinorMachine key={`${src}-${index}`} imageSrc={src} />
+      {minor_images1.map((src, index) => (
+        <MainMachine key={`${src}-${index}`} imageSrc={src} />
       ))}
     </div>
   );

@@ -1,0 +1,93 @@
+/* src/components/MainMachine.css */
+.main-machine {
+  width: 320px;
+  height: 570px;
+  margin: 0 40px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.main-machine::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #00ffcc, #ff00ff, #ffcc00, #00ccff);
+  background-size: 300% 300%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+  filter: blur(50px); 
+}
+
+.main-machine:hover::before {
+  opacity: 1;
+  animation: neonGlow 2s infinite;
+}
+
+@keyframes neonGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.main-machine:hover {
+  transform: scale(1.05);
+}
+
+.main-machine.hover-disabled:hover {
+  transform: none; /* Disables scaling */
+  cursor: default; /* Optional: change the cursor */
+}
+
+.main-machine-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* Updated from 'fit' to 'cover' for correct sizing */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Full-screen popup overlay */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* High z-index to ensure it’s on top */
+}
+
+/* Popup content centered on the screen */
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 80%; /* Takes up 80% of screen width */
+  max-height: 80%; /* Takes up 80% of screen height */
+  overflow-y: auto; /* Allows scrolling if content overflows */
+  text-align: center;
+}
+
+.popup-content button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+}
